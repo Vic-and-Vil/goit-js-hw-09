@@ -1,18 +1,139 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.gallery {
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1112px;
+}
+
+.gallery-item {border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.gallery-link:hover .gallery-image {
+  transform: scale(1.03);
+}
+
+.sl-overlay {
+  background-color: rgba(46, 47, 66, 0.8) !important;
+}
+
+.sl-image img {
+  max-width: 1112px;
+  width: 100%;
+  height: auto;
+}
+
+.sl-wrapper .sl-close {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+.sl-wrapper .sl-navigation button {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+.feedback-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  display: block;
+  margin-top: 8px;
+  margin-left: 16px;
+}
+
+.feedback-input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 40px;
+  display: block;
+  padding-left: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.feedback-textarea {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 80px;
+  display: block;
+  padding-left: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.feedback-input:hover,
+.feedback-textarea:hover {
+  border-color: #000;
+}
+
+.feedback-input:focus,
+.feedback-textarea:focus {
+  border-color: #000;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.feedback-button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 95px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 16px;
+  margin-top: 16px;
+  transition: background-color 0.3s;
+}
+
+.feedback-button:hover {
+  background-color: #6c8cff;
+}
