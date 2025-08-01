@@ -6,26 +6,24 @@ let formData = {
   message: '',
 };
 
-// Відновлення зі сховища
-const savedData = localStorage.getItem(STORAGE_KEY);
-if (savedData) {
-  try {
+window.addEventListener('DOMContentLoaded', () => {
+  const savedData = localStorage.getItem(STORAGE_KEY);
+  if (savedData) {
     formData = JSON.parse(savedData);
     form.elements.email.value = formData.email || '';
     form.elements.message.value = formData.message || '';
-  } catch (error) {
-    console.error('Parsing error:', error);
   }
-}
+});
 
-// Запис в локальне сховище
-form.addEventListener('input', (event) => {
-  formData[event.target.name] = event.target.value.trim();
+form.addEventListener('input', event => {
+  const { name, value } = event.target;
+
+  formData[name] = value.trim();
+
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 });
 
-// Обробка сабміту
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', event => {
   event.preventDefault();
 
   const { email, message } = formData;
@@ -38,6 +36,6 @@ form.addEventListener('submit', (event) => {
   console.log(formData);
 
   localStorage.removeItem(STORAGE_KEY);
-  form.reset();
   formData = { email: '', message: '' };
+  form.reset();
 });
